@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: catalog
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+#Ribbon의 listOfServers 목록은 Eureka 적용으로 불필요하여 주석처리 한다.
+#customer:
+#  ribbon:
+#    listOfServers: localhost:8082,localhost:8083
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka # default address
